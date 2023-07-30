@@ -23,10 +23,10 @@ export default function Home() {
         className="bg-transparent text-lg  pl-20 py-5 "
       >
         <option className="text-black" value={"en"}>
-          Inggris
+          Indonesia
         </option>
         <option className="text-black" value={"id"}>
-          Indonesia
+          English
         </option>
       </select>
       <div className="text-center px-5 items-center flex flex-col gap-12 py-40 xl:pb-40 lg:pb-20 md:pb-16 sm:pb-12">
