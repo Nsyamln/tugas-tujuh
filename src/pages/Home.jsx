@@ -22,10 +22,10 @@ export default function Home() {
         }}
         className="bg-transparent text-lg  pl-20 py-5 "
       >
-        <option className="text-black" value={"en"}>
+        <option className="text-black" value={"id"}>
           Indonesia
         </option>
-        <option className="text-black" value={"id"}>
+        <option className="text-black" value={"en"}>
           English
         </option>
       </select>
