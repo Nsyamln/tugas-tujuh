@@ -4,26 +4,11 @@ import { DiJavascript1 } from "react-icons/di";
 import { BsGithub } from "react-icons/bs";
 import { SiMysql } from "react-icons/si";
 import { useContext } from "react";
-import { ThemeContext } from "../App";
+import { LanguageContext, ThemeContext, strings } from "../App";
 export default function Home() {
-  const projects = [
-    {
-      id: 1,
-      judul: "Integer Store",
-      image: "/icons8-laptop-100.png",
-      deskripsi: "Sebuah marketplace yang menjual produk-produk Apple.",
-      link: "https://uts-react-six.vercel.app/",
-    },
-    {
-      id: 2,
-      judul: "Program CRUD | Sekolah",
-      image: "/icons8-laptop-100.png",
-      deskripsi: "Program CRUD Java sederhana dengan framework Spring Boot.",
-      link: "https://uts-pelatihan-java-lanjutan.vercel.app/",
-    },
-  ];
   const name = "I'm Maulina Inas Nasya";
   const { theme } = useContext(ThemeContext);
+  const { language, setLanguage } = useContext(LanguageContext);
   return (
     <div
       id="home"
@@ -31,6 +16,19 @@ export default function Home() {
         theme === "dark" ? "bg-slate-800 text-white" : "bg-zinc-200 text-black"
       }
     >
+      <select
+        onChange={(e) => {
+          setLanguage(e.target.value);
+        }}
+        className="bg-transparent text-lg  pl-20 py-5 "
+      >
+        <option className="text-black" value={"en"}>
+          Inggris
+        </option>
+        <option className="text-black" value={"id"}>
+          Indonesia
+        </option>
+      </select>
       <div className="text-center px-5 items-center flex flex-col gap-12 py-40 xl:pb-40 lg:pb-20 md:pb-16 sm:pb-12">
         <img
           className="rounded-full "
@@ -43,7 +41,7 @@ export default function Home() {
           {name}
         </h1>
         <p className="xl:text-3xl lg:text-2xl md:text-xl sm:text-lg">
-          Seorang Web Developer Junior
+          {strings[language].tagline}
         </p>
       </div>
       <div
@@ -51,54 +49,39 @@ export default function Home() {
         className={`pb-12 ${theme === "dark" ? "bg-slate-800" : "bg-zinc-100"}`}
       >
         <h1 className="xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-center font-medium py-10">
-          Projects
+          {strings[language].projects}
         </h1>
-        {projects.map((project) => (
-          <Project key={project.id} {...project} />
-        ))}
+        <Project />
       </div>
       <div id="about">
         <div className="px-20 pb-4">
           <div className="py-10 pb-10">
             <h1 className="xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-center font-medium ">
-              Tentang Saya
+              {strings[language].about}
             </h1>
             <p className="xl:text-2xl lg:text-xl md:text-lg sm:text-base text-center  py-6">
-              Di sini Anda akan menemukan informasi lebih lanjut tentang saya,
-              apa yang saya lakukan, dan keterampilan saya saat ini terutama
-              dalam hal pemrograman dan teknologi.
+              {strings[language].t1}
             </p>
           </div>
           <div className="flex gap-10">
             <div>
               <h2 className="xl:text-3xl lg:text-3xl md:text-2xl sm:text-xl font-semibold pb-6">
-                Kenali saya lebih jauh!
+                {strings[language].kenali}
               </h2>
               <p className="xl:text-2xl lg:text-xl md:text-lg sm:text-base text-justify">
-                Saya seorang Frontend Web Developer yang membangun bagian
-                Front-end dari Website dan Aplikasi Web yang mengarah pada
-                kesuksesan produk secara keseluruhan. Lihat beberapa hasil kerja
-                saya di bagian Proyek.
+                {strings[language].k1}
               </p>
               <p className="xl:text-2xl lg:text-xl md:text-lg sm:text-base text-justify  ">
-                Saya juga suka berbagi konten terkait hal-hal yang telah saya
-                pelajari selama bertahun-tahun dalam pengembangan Web sehingga
-                dapat membantu anggota komunitas pengembang lainnya. Silakan
-                terhubung atau mengikuti saya di <a href="/">LinkedIn</a> di
-                mana saya memposting konten berguna terkait pengembangan Web dan
-                pemrograman.
+                {strings[language].k2}
               </p>
               <p className="xl:text-2xl lg:text-xl md:text-lg sm:text-base text-justify  pb-10">
-                Saya terbuka untuk kesempatan kerja di mana saya dapat
-                berkontribusi, belajar, dan berkembang. Jika Anda memiliki
-                kesempatan yang baik yang sesuai dengan keterampilan dan
-                pengalaman saya, jangan ragu untuk menghubungi saya.
+                {strings[language].k3}
               </p>
             </div>
           </div>
           <div>
             <h2 className="xl:text-3xl lg:text-3xl md:text-2xl sm:text-xl font-semibold ">
-              Keahlian
+              {strings[language].skill}
             </h2>
             <div className="text-2xl md:text-xl sm:text-base flex gap-2 flex-wrap py-8 lg: justify-center">
               <div

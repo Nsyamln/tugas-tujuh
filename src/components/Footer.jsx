@@ -2,9 +2,10 @@ import { FaWhatsapp } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { GrInstagram } from "react-icons/gr";
 import { useContext } from "react";
-import { ThemeContext } from "../App";
+import { LanguageContext, ThemeContext, strings } from "../App";
 export default function Footer() {
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
   return (
     <div
       className={
@@ -18,8 +19,7 @@ export default function Footer() {
               Maulina Inas Nasya
             </h1>
             <p className="text-xl md:text-sm sm:text-sm text-justify py-8">
-              Seorang Web Developer dengan pengalaman dalam mengembangkan
-              berbagai jenis aplikasi web
+              {strings[language].footer}
             </p>
           </div>
           <div>

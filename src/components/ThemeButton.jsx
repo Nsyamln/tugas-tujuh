@@ -6,7 +6,10 @@ import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 export default function ThemeButton() {
   const { theme, setTheme } = useContext(ThemeContext);
   return (
-    <Button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+    <Button
+      className="pl-96"
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+    >
       {theme === "light" ? <MdDarkMode /> : <MdOutlineLightMode />}
     </Button>
   );
