@@ -25,7 +25,7 @@ export default function Home() {
         <option className="text-black" value={"id"}>
           Indonesia
         </option>
-        <option className="text-black" value={"en"}>
+        <option className="text-black" value={"ena"}>
           English
         </option>
       </select>

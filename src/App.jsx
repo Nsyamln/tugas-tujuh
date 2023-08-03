@@ -3,6 +3,10 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { useState } from "react";
 import Home from "./pages/Home";
+import { useRef } from "react";
+import { useEffect } from "react";
+import Button from "./components/Button";
+import { BsArrowUpCircle } from "react-icons/bs";
 export const ThemeContext = createContext({
   Theme: null,
   setTheme: () => {},
@@ -89,13 +93,37 @@ export const strings = {
 export default function App() {
   const [theme, setTheme] = useState("dark");
   const [language, setLanguage] = useState("id");
+
+  useEffect(() => {
+    theme === "dark"
+      ? console.log("Berhasil mengubah tema gelap")
+      : console.log("Berhasil mengubah tema terang");
+  });
+
+  const LinkRef = useRef(null);
+  const Scroll = () => {
+    LinkRef.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <div>
+        <div ref={LinkRef}>
           <Header />
           <Home />
           <Footer />
+          <div className="flex justify-end fixed bottom-0 right-0 mb-5">
+            <Button
+              onClick={Scroll}
+              className=" absolute bottom-0 right-0 mt-5 mr-4"
+            >
+              <BsArrowUpCircle
+                size={34}
+                className={theme === "dark" ? " text-white" : " text-black"}
+              />
+            </Button>
+          </div>
         </div>
       </ThemeContext.Provider>
     </LanguageContext.Provider>
